@@ -7,7 +7,7 @@ hands = mp_hands.Hands(min_detection_confidence = 0.7 , min_tracking_confidence 
 
 mp_draw = mp.solutions.drawing_utils
 
-cap = cv2.VideoCapture()
+cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
     print("Error: camera could not be accessed")
@@ -15,7 +15,7 @@ if not cap.isOpened():
 print("hand tracking started press q to quit")
 
 def detect_gesture(hand_landmarks):
-    landmarks = hand_landmarks.landmarks
+    landmarks = hand_landmarks.landmark
     tip_ids = [4 , 8 , 12 , 16 , 20]
     pip_ids = [2 , 6 , 10 , 14 , 18]
     extended = 0
